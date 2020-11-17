@@ -1,0 +1,5 @@
+{
+    "isProduction": false,
+    "test": true,
+    "port": 3000
+}
