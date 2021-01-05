@@ -59,7 +59,8 @@ module.exports = {
         ]
     },
     devServer: {
-        contentBase: path.resolve(__dirname, '/public/')
+        contentBase: path.resolve(__dirname, '/public/'),
+        historyApiFallback: true
 
     },
     devtool: 'source-map',
