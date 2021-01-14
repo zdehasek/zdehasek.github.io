@@ -24,13 +24,13 @@ node_modules
 !worker/model/node_modules
 
 # dist
-dist/*
-!dist/img
-!dist/font
-!dist/images
-!dist/vendor
-workerDist/*
-!workerDist/.git-placeholder
+# dist/*
+# !dist/img
+# !dist/font
+# !dist/images
+# !dist/vendor
+# workerDist/*
+# !workerDist/.git-placeholder
 
 # Serverless
 

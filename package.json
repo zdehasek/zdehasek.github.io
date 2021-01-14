@@ -10,8 +10,8 @@
     "lint": "./node_modules/.bin/eslint",
     "build": "webpack --mode production",
     "build-posts": "node ./bin/buildPosts.js",
-    "gh-pages": "node ./bin/gh-pages.js",
-    "deploy": "npm run build && npm run gp-pages && git add dist/ && git commit -m \"Deploy gh-pages\" && git subtree push --prefix out origin gh-pages"
+    "gh-pages": "node ./bin/ghPages.js",
+    "deploy": "npm run build && npm run gh-pages && git add dist/ && git commit -m \"Deploy gh-pages\" && git subtree push --force --prefix dist origin gh-pages"
   },
   "repository": {
     "type": "git",
