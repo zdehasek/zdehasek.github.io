@@ -1,6 +1,6 @@
 import './scss/styles.scss';
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 
 import Footer from './Components/Footer';
 import Nav from './Components/Nav';
@@ -14,7 +14,7 @@ import NotFound from './Pages/NotFound';
 export default function App () {
 
     return (
-        <Router>
+        <Router basename="/">
             <div className="App">
                 <Nav />
                 <Switch>
