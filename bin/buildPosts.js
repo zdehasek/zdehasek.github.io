@@ -3,36 +3,37 @@ const path = require('path');
 const matter = require('gray-matter');
 const remark = require('remark');
 const html = require('remark-html');
+const gfm = require('remark-gfm');
 
 (async () => {
 
     const postsDirectory = path.join(process.cwd(), 'posts');
 
-    function getAllPostIds () {
+    // function getAllPostIds () {
 
-        const fileNames = fs.readdirSync(postsDirectory);
+    //     const fileNames = fs.readdirSync(postsDirectory);
 
-        // console.log(fileNames);
+    //     // console.log(fileNames);
 
-        // Returns an array that looks like this:
-        // [
-        //   {
-        //     params: {
-        //       id: 'ssg-ssr'
-        //     }
-        //   },
-        //   {
-        //     params: {
-        //       id: 'pre-rendering'
-        //     }
-        //   }
-        // ]
-        return fileNames.map((fileName) => ({
-            params: {
-                id: fileName.replace(/\.md$/, '')
-            }
-        }));
-    }
+    //     // Returns an array that looks like this:
+    //     // [
+    //     //   {
+    //     //     params: {
+    //     //       id: 'ssg-ssr'
+    //     //     }
+    //     //   },
+    //     //   {
+    //     //     params: {
+    //     //       id: 'pre-rendering'
+    //     //     }
+    //     //   }
+    //     // ]
+    //     return fileNames.map((fileName) => ({
+    //         params: {
+    //             id: fileName.replace(/\.md$/, '')
+    //         }
+    //     }));
+    // }
 
     async function getPostData (id) {
         const fullPath = path.join(postsDirectory, `${id}.md`);
@@ -44,6 +45,7 @@ const html = require('remark-html');
         // Use remark to convert markdown into HTML string
         const processedContent = await remark()
             .use(html)
+            .use(gfm)
             .process(matterResult.content);
         const contentHtml = processedContent.toString();
 
@@ -58,12 +60,7 @@ const html = require('remark-html');
     // console.log(getAllPostIds());
 
     // const post1 = new Promise(getPostData('post1'));
-
-    const post1 = await getPostData('post1');
-
-    console.log(post1);
-
-    function getSortedPostsData () {
+    function getSortedPostsInfo () {
         // Get file names under /posts
         const fileNames = fs.readdirSync(postsDirectory);
         const allPostsData = fileNames.map((fileName) => {
@@ -93,6 +90,15 @@ const html = require('remark-html');
         });
     }
 
-    console.log('gogog', getSortedPostsData());
+    async function buildPosts () {
+
+        const postsInfo = getSortedPostsInfo();
+        const postsData = await Promise.all(postsInfo.map(async (s) => getPostData(s.id)));
+
+        fs.writeFileSync('dist/postsInfo.json', JSON.stringify(postsInfo));
+        fs.writeFileSync('dist/postsData.json', JSON.stringify(postsData));
+    }
+
+    buildPosts();
 
 })();

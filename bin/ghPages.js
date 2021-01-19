@@ -1,5 +1,4 @@
-'use strict';
-
+/* eslint-disable no-console */
 console.log('start');
 
 const fs = require('fs');
