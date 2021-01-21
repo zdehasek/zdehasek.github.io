@@ -1,33 +1,36 @@
-$body-color: rgb(26, 12, 12);
-
-body {
-  color: $body-color;
-}
-
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  min-height: 10vh;
-  background-color: #F9F8F4;
-  color: white;
-}
-
-.nav-links {
-  width: 40%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  list-style: none;
-  color: #111;
-  text-decoration: none;
-
-  font-family: europa;
-  font-weight: bold;
-  background: none;
+@charset "utf-8";
+@import '~bulma/bulma';
 
 
-}
+// $body-color: rgb(26, 12, 12);
+
+// body {
+//   color: $body-color;
+// }
+
+// nav {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   min-height: 10vh;
+//   background-color: #F9F8F4;
+//   color: white;
+// }
+
+// .nav-links {
+//   width: 40%;
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   list-style: none;
+//   color: #111;
+//   text-decoration: none;
+
+//   font-family: europa;
+//   font-weight: bold;
+//   background: none;
+
+// }
 
 
 // font-size: 46px;

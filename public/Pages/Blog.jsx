@@ -18,19 +18,25 @@ export default () => {
     const getMD = () => ({ __html: md.render('## This is also Blog') });
 
     return (
-        <>
-            <h1>This is Blog</h1>
-            <div
-                className="content"
-                dangerouslySetInnerHTML={getMD()}
-            />
 
-            {postsInfo.map((post) => (
-                <h2 key={post.id}>
-                    <Link to={`/blog/${post.id}`}>{post.title}</Link>
-                </h2>
-            ))}
+        <>
+            <h2>Blog</h2>
+
+            <aside className="menu">
+                <p className="menu-label">
+                    General
+                </p>
+                <ul className="menu-list">
+                    {postsInfo.map((post) => (
+                        <li key={post.id}>
+                            <Link to={`/blog/${post.id}`}>{post.title}</Link>
+                        </li>
+                    ))}
+
+                </ul>
+            </aside>
 
         </>
+
     );
 };

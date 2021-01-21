@@ -1,6 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { HashRouter as Router } from 'react-router-dom';
 import App from './app';
 
-// eslint-disable-next-line no-undef
-ReactDOM.render(<App />, document.getElementById('root'));
+function Main () {
+
+    return (
+        <Router basename="/">
+            <App />
+        </Router>
+    );
+}
+
+ReactDOM.render(<Main />, document.getElementById('root'));

@@ -3,22 +3,23 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default () => (
-    <nav>
-        <ul className="nav-links">
-            <Link className="nav-links" to="/">
-                <li>ZDE HASEK</li>
+    <nav className="navbar is-white" role="navigation" aria-label="main navigation">
+        <div className="navbar-brand">
+            <Link className="navbar-item" to="/">
+                ZDENĚK HÁSEK
             </Link>
-        </ul>
+        </div>
 
-        <ul className="nav-links">
-            <Link className="nav-links" to="/blog">
-                <li>Blog</li>
-            </Link>
+        <div id="navbar" className="navbar-menu">
+            <div className="navbar-end">
+                <Link className="navbar-item" to="/blog">
+                    BLOG
+                </Link>
 
-            <Link className="nav-links" to="/about">
-                <li>About</li>
-            </Link>
-
-        </ul>
+                <Link className="navbar-item" to="/about">
+                    ABOUT
+                </Link>
+            </div>
+        </div>
     </nav>
 );
