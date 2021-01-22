@@ -6,6 +6,7 @@ import Blog from '../Pages/Blog';
 import Home from '../Pages/Home';
 import BlogPost from '../Pages/BlogPost';
 import NotFound from '../Pages/NotFound';
+import Test from '../Pages/Test.mdx';
 
 export default function Routes () {
 
@@ -16,6 +17,7 @@ export default function Routes () {
             <Route path="/about" component={About} />
             <Route path="/blog" exact component={Blog} />
             <Route path="/blog/:id" component={BlogPost} />
+            <Route path="/test" component={Test} />
             <Route path="*" component={NotFound} />
         </Switch>
 

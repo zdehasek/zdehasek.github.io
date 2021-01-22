@@ -20,6 +20,10 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.mdx?$/,
+                use: ['babel-loader', '@mdx-js/loader']
+            },
+            {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 use: {
