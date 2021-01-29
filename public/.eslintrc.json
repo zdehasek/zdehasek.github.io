@@ -5,8 +5,8 @@
     ],
     "parser": "babel-eslint",
     "parserOptions": {
-        "ecmaVersion": 9,
-        "allowImportExportEverywhere": false,
+        "ecmaVersion": 11,
+        "allowImportExportEverywhere": true,
         "ecmaFeatures": {
             "defaultParams": true,
             "destructuring": true,

@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import { Remarkable } from 'remarkable';
 import { Link } from 'react-router-dom';
 
+import { webalize } from 'webalize';
+
 import postsInfo from '../../dist/postsInfo.json';
 
 const md = new Remarkable();

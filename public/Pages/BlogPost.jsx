@@ -1,15 +1,21 @@
 /* eslint-disable react/no-danger */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import PropTypes from 'prop-types';
 
-import posts from '../../dist/postsData.json';
+import NotFound from './NotFound';
+
+import postsInfo from '../../dist/postsInfo.json';
 
 function blogPost ({ match }) {
 
     const { params: { id } } = match;
-    const { contentHtml } = posts.find((post) => post.id === id);
 
-    // console.log('ssll', contentHtml);
+    let Article;
+    const { title } = postsInfo.find((p) => p.id === id) || {};
+
+    if (title) {
+        Article = React.lazy(() => import(`../../posts/${title}.mdx`));
+    }
 
     // useEffect(() => {
     //     console.log(id);
@@ -19,11 +25,10 @@ function blogPost ({ match }) {
 
     return (
         <>
-            <h1>{`This is Blog ABOUT:${match.params.id}`}</h1>
-            <div
-                className="content"
-                dangerouslySetInnerHTML={{ __html: contentHtml }}
-            />
+            <h1>{`This is Blog ABOUT:${id}`}</h1>
+            <Suspense fallback={<div>Loading...</div>}>
+                {Article ? <Article /> : <NotFound />}
+            </Suspense>
         </>
     );
 }

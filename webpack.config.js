@@ -15,7 +15,10 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: ['.js', '.mjs', '.jsx', '.scss']
+        extensions: ['.js', '.mjs', '.jsx', '.scss'],
+        fallback: {
+            url: require.resolve('url')
+        }
     },
     module: {
         rules: [

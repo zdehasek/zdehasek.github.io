@@ -4,6 +4,7 @@ const matter = require('gray-matter');
 const remark = require('remark');
 const html = require('remark-html');
 const gfm = require('remark-gfm');
+const { webalize } = require('webalize');
 
 (async () => {
 
@@ -65,19 +66,21 @@ const gfm = require('remark-gfm');
         const fileNames = fs.readdirSync(postsDirectory);
         const allPostsData = fileNames.map((fileName) => {
             // Remove ".md" from file name to get id
-            const id = fileName.replace(/\.md$/, '');
+            const title = fileName.replace(/\.mdx$/, '');
 
             // Read markdown file as string
-            const fullPath = path.join(postsDirectory, fileName);
-            const fileContents = fs.readFileSync(fullPath, 'utf8');
+            // const fullPath = path.join(postsDirectory, fileName);
+            // const fileContents = fs.readFileSync(fullPath, 'utf8');
 
             // Use gray-matter to parse the post metadata section
-            const matterResult = matter(fileContents);
+            // const matterResult = matter(fileContents);
 
             // Combine the data with the id
             return {
-                id,
-                ...matterResult.data
+                title,
+                id: webalize(title, true)
+
+                // ...matterResult.data
             };
         });
         // Sort posts by date
@@ -93,10 +96,11 @@ const gfm = require('remark-gfm');
     async function buildPosts () {
 
         const postsInfo = getSortedPostsInfo();
-        const postsData = await Promise.all(postsInfo.map(async (s) => getPostData(s.id)));
+        // console.log(postsInfo);
+       // const postsData = await Promise.all(postsInfo.map(async (s) => getPostData(s.id)));
 
         fs.writeFileSync('dist/postsInfo.json', JSON.stringify(postsInfo));
-        fs.writeFileSync('dist/postsData.json', JSON.stringify(postsData));
+        // fs.writeFileSync('dist/postsData.json', JSON.stringify(postsData));
     }
 
     buildPosts();
