@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import About from '../Pages/About.mdx';
+import About from '../Pages/About';
 import Blog from '../Pages/Blog';
 import Home from '../Pages/Home';
 import BlogPost from '../Pages/BlogPost';

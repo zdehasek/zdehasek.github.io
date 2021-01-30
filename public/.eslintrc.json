@@ -1,6 +1,7 @@
 {
     "extends": [
         "../.eslintrc",
+        "plugin:mdx/recommended",
         "eslint-config-airbnb/hooks"
     ],
     "parser": "babel-eslint",
@@ -34,9 +35,18 @@
         }],
         "jsx-a11y/anchor-has-content": [0],
         "jsx-a11y/click-events-have-key-events": [0],
-        "jsdoc/require-jsdoc": [0]
+        "jsdoc/require-jsdoc": [0],
+        "import/extensions": ["error", "ignorePackages", {
+            "js": "never",
+            "mjs": "never",
+            "jsx": "never",
+            "mdx": "never"
+          }]
     },
     "env": {
         "browser": true
+    },
+    "settings": {
+        "import/resolver": "webpack"
     }
 }

@@ -1,9 +1,7 @@
-/* eslint-disable react/no-danger */
-import React, { useState, useEffect, Suspense } from 'react';
+import React, { Suspense } from 'react';
 import PropTypes from 'prop-types';
 
 import NotFound from './NotFound';
-
 import postsInfo from '../../dist/postsInfo.json';
 
 function blogPost ({ match }) {
@@ -16,12 +14,6 @@ function blogPost ({ match }) {
     if (title) {
         Article = React.lazy(() => import(`../../posts/${title}.mdx`));
     }
-
-    // useEffect(() => {
-    //     console.log(id);
-    //     console.log(contentHtml);
-
-    // }, [match]);
 
     return (
         <>
