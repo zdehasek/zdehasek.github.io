@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://zdehasek.com/sitemap.xml
+Host: https://zdehasek.com
