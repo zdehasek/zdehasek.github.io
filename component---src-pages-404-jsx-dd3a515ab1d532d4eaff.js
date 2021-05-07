@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[5],{pssB:function(e,n,a){"use strict";a.r(n);var t=a("q1tI"),s=a.n(t),c=a("L6Je");n.default=function(){return s.a.createElement(c.a,null,s.a.createElement("div",{className:"columns"},s.a.createElement("div",{className:"column is-10 is-offset-3"},s.a.createElement("h1",null,"🤷‍♀️ 🤦‍♂️👎 ...not found"))))}}}]);
+//# sourceMappingURL=component---src-pages-404-jsx-dd3a515ab1d532d4eaff.js.map
