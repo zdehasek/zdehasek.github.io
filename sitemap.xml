@@ -3,4 +3,5 @@
 <url> <loc>https://zdehasek.com/blog/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://zdehasek.com/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://zdehasek.com/skills/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://zdehasek.com/ssh/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 </urlset>
